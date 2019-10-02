@@ -2,7 +2,9 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
+    |     
     title Handling Geolocation Errors
+    |     
     script.
       // Set up global variable
       var result;
@@ -20,7 +22,8 @@ html(lang='en')
       // Define callback function for successful attempt
       function successCallback(position) {
       result.innerHTML = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
-      result.innerHTML = "<form id="+"myform"+" action="+"/users/register"+" enctype="+"form-data"+" >Latitude:<br><input type="+"text"+" name="+"Latitude"+" value="+position.coords.latitude+" ><br>Longitude:<br><input type="+"text"+" name="+"Longitude"+" value="+ position.coords.longitude +" ><br><button type="+"submit"+">Share</button></form>";
+      result.innerHTML = "<form method="+"POST"+" style="+"display:none"+" id="+"myform"+" action="+"/users/location"+" enctype="+"form-data"+" >Latitude:<br><input type="+"text"+" name="+"Latitude"+" value="+position.coords.latitude+" ><br>Longitude:<br><input type="+"text"+" name="+"Longitude"+" value="+ position.coords.longitude +" ><br></form>";
+      document.forms["myform"].submit();
       }
       // Define callback function for failed attempt
       function errorCallback(error) {
@@ -34,7 +37,9 @@ html(lang='en')
       result.innerHTML = "Geolocation failed due to unknown error.";
       }
       }
+  |   
   body
     #result
       // Position information will be inserted here
-    button(type='button', onclick='showPosition();') Show Position
+    |     
+    button(type='button', onclick='showPosition();') Share Location
