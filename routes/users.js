@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
+var config = require('./config')
 var access_token
 var sender_psid
 
