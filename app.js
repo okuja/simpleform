@@ -39,7 +39,8 @@ app.use(function(err, req, res, next) {
 });
 
 //this is for my benefit
-if(app.listen(process.env.PORT || 5000)){
-  console.log('Server is running on port 5000 or other.....');
+//process.env.PORT 
+if(app.listen(process.env.PORT||5000)){
+  console.log('Server is running on port 5000 or other.....' );
 }
 module.exports = app;
